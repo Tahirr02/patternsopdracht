@@ -2,20 +2,26 @@
 
 public class Maandsalaris {
     private String maand;
-    private double totaalUren;
+    private double uren;
     private double uurloon;
 
 
-    public Maandsalaris(String maand, double uurloon, double totaalUren) {
+    public Maandsalaris(String maand, double uurloon, double uren) {
         this.maand = maand;
-        this.totaalUren = totaalUren;
+        this.uren = uren;
         this.uurloon = uurloon;
     }
     public double berekenSalaris(){
-        double salaris = totaalUren * uurloon;
+        double salaris = uren * uurloon;
         return salaris;
 
 
+    }
+    public double getUren(){
+        return uren;
+    }
+    public String getMaand(){
+        return maand;
     }
 
 }
