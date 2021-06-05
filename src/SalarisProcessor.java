@@ -4,7 +4,8 @@ public class SalarisProcessor {
     Displayer displayerInstance;
 
     public SalarisProcessor (String jsonString) {
-        this.werknemer = new Werknemer (jsonString);
+
+        this.werknemer = (Werknemer) PersoonFactory.werknemerFactory.createPersoon(jsonString);
         displayerInstance = Displayer.getInstance();
     }
 
@@ -12,14 +13,14 @@ public class SalarisProcessor {
 
     public void bereken() {
 
-        double salaris = this.werknemer.getMaandsalaris().berekenSalaris();
+        double salaris = this.werknemer.getLaatsteMaandsalaris().berekenSalaris();
 
         String bericht = getMessage(salaris);
         displayerInstance.display(bericht);
     }
 
     public String getMessage(double salaris){
-        String bericht =  werknemer.getNaam() + " " + "met" + " " + werknemer.getMaandsalaris().getUren() + " uren" + " " + "heeft " + "€" + salaris + " euro "+ "verdiend " + "in maand " + werknemer.getMaandsalaris().getMaand() + ".";
+        String bericht =  werknemer.getNaam() + " te " + werknemer.getAdres()+ " " + "met" + " " + werknemer.getLaatsteMaandsalaris().getUren() + " uren" + " " + "heeft " + "€" + salaris + " euro "+ "verdiend " + "in maand " + werknemer.getLaatsteMaandsalaris().getMaand() + ".";
         return bericht;
     }
 }

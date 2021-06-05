@@ -1,6 +1,4 @@
-package com.company;
-
-public abstract class Persoon {
+public abstract class Persoon implements IPersoon{
    protected String naam;
    protected String adres;
 

@@ -1,8 +1,12 @@
-import com.company.Persoon;
 import org.json.JSONObject;
-public class Werknemer extends Persoon {
 
-    private Maandsalaris maandsalaris;
+import java.util.ArrayList;
+
+public class Werknemer extends Persoon implements IWerknemer{
+
+    ArrayList<Maandsalaris> maandsalarissen = new ArrayList<Maandsalaris>();
+
+
 
 
 
@@ -10,17 +14,21 @@ public class Werknemer extends Persoon {
         JSONObject jsonObject = new JSONObject(jsonString);
         this.naam = jsonObject.getString("Name");
         this.adres = jsonObject.getString("Adres");
-        this.maandsalaris = new Maandsalaris(jsonObject.getString("Maand"), jsonObject.getDouble("Uurloon"), jsonObject.getDouble("Uren"));
+        this.maandsalarissen.add(new Maandsalaris(jsonObject.getString("Maand"), jsonObject.getDouble("Uurloon"), jsonObject.getDouble("Uren")));
+
 
 
     }
+
+
 
     
 
 
 
-    public Maandsalaris getMaandsalaris(){
-        return this.maandsalaris;
+    public Maandsalaris getLaatsteMaandsalaris(){
+
+        return this.maandsalarissen.get(this.maandsalarissen.size()- 1);
     }
 
 }
