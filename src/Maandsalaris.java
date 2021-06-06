@@ -1,5 +1,3 @@
-
-
 public class Maandsalaris {
     private String maand;
     private double uren;

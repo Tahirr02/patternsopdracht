@@ -4,8 +4,8 @@ class SalarisProcessorTest {
 
     @org.junit.jupiter.api.Test
     void getMessage() {
-        //IWerknemerFactory werknemerFactory = new WerknemerFactory();
-        SalarisProcessor salarisProcessor = new SalarisProcessor("{ 'Name' : 'Tahir Balcik', " +
+        SalarisProcessor salarisProcessor = new SalarisProcessor(
+                "{ 'Name' : 'Tahir Balcik', " +
                 "  'Uren' : '40', " +
                 "  'Maand' : 'Februari', " +
                 "  'Adres' : 'Teststraat 1a', " +

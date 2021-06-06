@@ -1,4 +1,4 @@
-public class SalarisProcessor {
+public class SalarisProcessor implements ISalarisProcessor{
 
     private Werknemer werknemer;
     Displayer displayerInstance;
@@ -9,8 +9,6 @@ public class SalarisProcessor {
         displayerInstance = Displayer.getInstance();
     }
 
-
-
     public void bereken() {
 
         double salaris = this.werknemer.getLaatsteMaandsalaris().berekenSalaris();
@@ -20,7 +18,12 @@ public class SalarisProcessor {
     }
 
     public String getMessage(double salaris){
-        String bericht =  werknemer.getNaam() + " te " + werknemer.getAdres()+ " " + "met" + " " + werknemer.getLaatsteMaandsalaris().getUren() + " uren" + " " + "heeft " + "€" + salaris + " euro "+ "verdiend " + "in maand " + werknemer.getLaatsteMaandsalaris().getMaand() + ".";
+        String bericht =  werknemer.getNaam() + " te " +
+                werknemer.getAdres()+ " " + "met" + " " +
+                werknemer.getLaatsteMaandsalaris().getUren() +
+                " uren" + " " + "heeft " + "€" + salaris + " euro "+
+                "verdiend " + "in maand " +
+                werknemer.getLaatsteMaandsalaris().getMaand() + ".";
         return bericht;
     }
 }
