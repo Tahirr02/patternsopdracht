@@ -1,11 +1,12 @@
 public class Displayer {
     private static Displayer displayer;
-
-    private Displayer(){
-
+    private Displayer()
+    {
     }
-    public static Displayer getInstance(){
-        if(displayer == null){
+    public static Displayer getInstance()
+    {
+        if(displayer == null)
+        {
             displayer = new Displayer();
         }
         return displayer;
